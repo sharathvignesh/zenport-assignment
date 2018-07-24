@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Steps, Button, Menu, Icon, Dropdown, message, Row, Col } from 'antd';
+
 import '../assets/css/App.css';
+import Item from '../components/Item';
 
 const Step = Steps.Step;
 
@@ -56,6 +58,7 @@ class App extends Component {
 
     getContent = (current) => {
       const restaurantRow = this.state.restaurantRow;
+      const items = ['1st menu', '2nd menu', '3rd menu'];
       switch(current) {
           case 0:
               return (
@@ -119,13 +122,9 @@ class App extends Component {
                       </Row>
                   </div>
               );
-          case 3:
+	      case 3:
               return (
-                  <Dropdown overlay={menu}>
-                      <Button style={{ marginLeft: 8 }}>
-                          Review <Icon type="down" />
-                      </Button>
-                  </Dropdown>
+                  <Item label="Please select a restaurant" dropDownItems={items}/>
               );
       }
     }
